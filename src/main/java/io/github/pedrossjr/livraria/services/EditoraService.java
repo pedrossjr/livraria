@@ -2,6 +2,7 @@ package io.github.pedrossjr.livraria.services;
 
 import io.github.pedrossjr.livraria.dto.EditoraDTO;
 import io.github.pedrossjr.livraria.entities.Editora;
+import io.github.pedrossjr.livraria.mapper.EditoraMapper;
 import io.github.pedrossjr.livraria.repositories.EditoraRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,38 +17,43 @@ public class EditoraService {
 
     private final EditoraRepository editoraRepository;
 
-    @Autowired
-    private ModelMapper modelMapper;
+    private final EditoraMapper editoraMapper = EditoraMapper.INSTANCE;
 
     public EditoraService(EditoraRepository editoraRepository) {
         this.editoraRepository = editoraRepository;
     }
 
     public EditoraDTO salvar(EditoraDTO editoraDTO) {
-        Editora editora = new Editora();
 
-        editora.setNomeEditora(editoraDTO.getNomeEditora());
-        editora.setEmailEditora(editoraDTO.getEmailEditora());
+        Editora editoraToSave = editoraMapper.toModel(editoraDTO);
 
-        Editora editoraInserida = editoraRepository.save(editora);
+        Editora editoraSave = editoraRepository.save(editoraToSave);
 
-        EditoraDTO responseDTO = modelMapper.map(editoraInserida, EditoraDTO.class);
+        // TODO - Continuar daqui, verificando o MessageResponseDTO
 
-        return responseDTO;
+        //return editoraSave;
 
-    }
+//        Editora editora = Editora.builder()
+//                .nomeEditora(editoraDTO.getNomeEditora())
+//                .emailEditora(editoraDTO.getEmailEditora())
+//                .build();
 
-    @Transactional(readOnly = true)
-    public List<EditoraDTO> listarTodos() {
 
-        List<Editora> listaEditora = editoraRepository.findAll();
-
-        List<EditoraDTO> responseDTO = Collections.singletonMap(modelMapper.map(listaEditora, EditoraDTO.class));
-
-        System.out.println(responseDTO);
-
-        return responseDTO;
 
 
     }
+
+//    @Transactional(readOnly = true)
+//    public List<EditoraDTO> listarTodos() {
+//
+//        List<Editora> listaEditora = editoraRepository.findAll();
+//
+//        List<EditoraDTO> responseDTO = Collections.singletonMap(modelMapper.map(listaEditora, EditoraDTO.class));
+//
+//        System.out.println(responseDTO);
+//
+//        return responseDTO;
+//
+//
+//    }
 }

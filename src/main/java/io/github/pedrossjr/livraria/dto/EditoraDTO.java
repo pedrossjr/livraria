@@ -1,6 +1,7 @@
 package io.github.pedrossjr.livraria.dto;
 
 import io.github.pedrossjr.livraria.entities.Editora;
+import jakarta.validation.constraints.NotEmpty;
 import lombok.*;
 import org.springframework.beans.BeanUtils;
 
@@ -11,7 +12,11 @@ import org.springframework.beans.BeanUtils;
 public class EditoraDTO {
 
     private Long id;
+
+    @NotEmpty(message = "{campo.nome-editora.obrigatorio}")
     private String nomeEditora;
+
+    @NotEmpty(message = "{campo.email-editora.obrigatorio}")
     private String emailEditora;
 
     public EditoraDTO(Editora entity) {
