@@ -15,20 +15,20 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table(name = "tbl_editoras")
-public class Editora {
+public class Publisher {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 45, nullable = false)
-    private String nomeEditora;
+    private String publisherName;
 
     @Column(length = 45, nullable = false)
-    private String emailEditora;
+    private String publisherMail;
 
     @JsonIgnore
-    @OneToMany(mappedBy = "editora", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
-    private Set<Livro> livros;
+    @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+    private Set<Book> books;
 
 }

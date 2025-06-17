@@ -1,4 +1,4 @@
 package io.github.pedrossjr.livraria.controllers;
 
-public class AutorController {
+public class GenderController {
 }

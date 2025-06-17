@@ -1,46 +1,48 @@
 package io.github.pedrossjr.livraria.entities;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 
 @Data
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tbl_livros")
-public class Livro {
+@Table(name = "tbl_books")
+public class Book {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(unique = true)
-    @NotEmpty(message = "{campo.isbn-livro.obrigatorio}")
     private String isbn;
 
     @Column(length = 45)
-    @NotEmpty(message = "{campo.titulo-livro.obrigatorio}")
-    private String tituloLivro;
+    private String bookTitle;
 
     @Column(columnDefinition = "TEXT")
-    private String descricaoLivro;
+    private String bookDescription;
 
-    private int numeroPaginas;
+    private int numberPages;
 
     @ManyToOne
     @JoinColumn(name = "autor_id")
-    private Autor autor;
+    private Author author;
 
     @ManyToOne
-    @JoinColumn(name = "editora_id")
-    private Editora editora;
+    @JoinColumn(name = "publisher_id")
+    private Publisher publisher;
 
-    @Column(name = "data_cadastro")
-    private LocalDateTime dataCadastro = LocalDateTime.now();
+    @ManyToOne
+    @JoinColumn(name = "gender_id")
+    private Gender gender;
+
+    private LocalDateTime registrationDate = LocalDateTime.now();
 
 }
