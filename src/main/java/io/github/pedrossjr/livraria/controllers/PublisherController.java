@@ -38,6 +38,11 @@ public class PublisherController {
         return  publisherService.findById(id);
     }
 
+    @PutMapping("/{id}/update")
+    public  MessageResponseDTO updateById(@PathVariable Long id, @RequestBody @Valid PublisherDTO publisherDTO) throws PublisherNotFoundException {
+        return publisherService.updateById(id, publisherDTO);
+    }
+
     @DeleteMapping("/{id}/delete")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deleteById(@PathVariable Long id) throws PublisherNotFoundException {

@@ -7,10 +7,10 @@ import io.github.pedrossjr.livraria.exception.PublisherNotFoundException;
 import io.github.pedrossjr.livraria.mapper.PublisherMapper;
 import io.github.pedrossjr.livraria.repositories.PublisherRepository;
 import jakarta.transaction.Transactional;
+import jakarta.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -30,10 +30,7 @@ public class PublisherService {
 
         Publisher savedPublisher = publisherRepository.save(publisherToSave);
 
-        return MessageResponseDTO
-            .builder()
-            .message("Created publisher with ID " + savedPublisher.getId())
-            .build();
+        return createMessageResponse(savedPublisher.getId(), "Saved publisher with ID ");
     }
 
     public List<PublisherDTO> listAll() {
@@ -54,9 +51,27 @@ public class PublisherService {
         publisherRepository.deleteById(id);
     }
 
+    public MessageResponseDTO updateById(Long id, @Valid PublisherDTO publisherDTO) throws PublisherNotFoundException {
+        verifyByExists(id);
+
+        Publisher publisherToUpdate = publisherMapper.toModel(publisherDTO);
+
+        Publisher updatedPublisher = publisherRepository.save(publisherToUpdate);
+
+        return createMessageResponse(updatedPublisher.getId(), "Updated publisher with ID ");
+    }
+
     private Publisher verifyByExists(Long id) throws PublisherNotFoundException {
         return publisherRepository.findById(id)
                 .orElseThrow(() -> new PublisherNotFoundException(id));
 
     }
+
+    private static MessageResponseDTO createMessageResponse(Long id, String message) {
+        return MessageResponseDTO
+                .builder()
+                .message(message + id)
+                .build();
+    }
+
 }
