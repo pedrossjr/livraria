@@ -20,6 +20,7 @@ public class BookDTO {
     @NotEmpty(message = "{field.book-title.mandatory}")
     private String bookTitle;
     private String bookDescription;
+    private int agePublish;
     private int numberPages;
     private LocalDateTime registrationDate = LocalDateTime.now();
 

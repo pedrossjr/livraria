@@ -6,33 +6,30 @@ import io.github.pedrossjr.livraria.entities.Publisher;
 import io.github.pedrossjr.livraria.exception.PublisherNotFoundException;
 import io.github.pedrossjr.livraria.mapper.PublisherMapper;
 import io.github.pedrossjr.livraria.repositories.PublisherRepository;
-import jakarta.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
+@AllArgsConstructor(onConstructor_ = @__(@Autowired))
 public class PublisherService {
 
     private final PublisherRepository publisherRepository;
     private final PublisherMapper publisherMapper;
 
-    public PublisherService(PublisherRepository publisherRepository, PublisherMapper publisherMapper) {
-        this.publisherRepository = publisherRepository;
-        this.publisherMapper = publisherMapper;
-    }
-
     @Transactional
     public MessageResponseDTO createPublisher(PublisherDTO publisherDTO) {
         Publisher publisherToSave = publisherMapper.toModel(publisherDTO);
-
         Publisher savedPublisher = publisherRepository.save(publisherToSave);
-
-        return createMessageResponse(savedPublisher.getId(), "Saved publisher with ID ");
+        return createMessageResponse(savedPublisher.getId(), "Saved publisher with id: ");
     }
 
+    @Transactional(readOnly = true)
     public List<PublisherDTO> listAll() {
         List<Publisher> allPublisher = publisherRepository.findAll();
         return allPublisher
@@ -41,30 +38,29 @@ public class PublisherService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
     public PublisherDTO findById(Long id) throws PublisherNotFoundException {
         Publisher publisher = verifyByExists(id);
         return publisherMapper.toDTO(publisher);
     }
 
+    @Transactional
+    public MessageResponseDTO updateById(Long id, @Valid PublisherDTO publisherDTO) throws PublisherNotFoundException {
+        verifyByExists(id);
+        Publisher publisherToUpdate = publisherMapper.toModel(publisherDTO);
+        Publisher updatedPublisher = publisherRepository.save(publisherToUpdate);
+        return createMessageResponse(updatedPublisher.getId(), "Updated publisher with id: ");
+    }
+
+    @Transactional
     public void delete(Long id) throws PublisherNotFoundException {
         verifyByExists(id);
         publisherRepository.deleteById(id);
     }
 
-    public MessageResponseDTO updateById(Long id, @Valid PublisherDTO publisherDTO) throws PublisherNotFoundException {
-        verifyByExists(id);
-
-        Publisher publisherToUpdate = publisherMapper.toModel(publisherDTO);
-
-        Publisher updatedPublisher = publisherRepository.save(publisherToUpdate);
-
-        return createMessageResponse(updatedPublisher.getId(), "Updated publisher with ID ");
-    }
-
     private Publisher verifyByExists(Long id) throws PublisherNotFoundException {
         return publisherRepository.findById(id)
                 .orElseThrow(() -> new PublisherNotFoundException(id));
-
     }
 
     private static MessageResponseDTO createMessageResponse(Long id, String message) {

@@ -5,6 +5,7 @@ import io.github.pedrossjr.livraria.dto.response.MessageResponseDTO;
 import io.github.pedrossjr.livraria.exception.PublisherNotFoundException;
 import io.github.pedrossjr.livraria.services.PublisherService;
 import jakarta.validation.Valid;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -13,14 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/publisher")
+@AllArgsConstructor(onConstructor_ = @__(@Autowired))
 public class PublisherController {
 
     private final PublisherService publisherService;
-
-    @Autowired
-    public PublisherController(PublisherService publisherService) {
-        this.publisherService = publisherService;
-    }
 
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)

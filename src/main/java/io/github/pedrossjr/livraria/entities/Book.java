@@ -29,6 +29,8 @@ public class Book {
     @Column(columnDefinition = "TEXT")
     private String bookDescription;
 
+    private int agePublish;
+
     private int numberPages;
 
     @ManyToOne
