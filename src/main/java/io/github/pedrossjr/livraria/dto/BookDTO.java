@@ -1,5 +1,11 @@
 package io.github.pedrossjr.livraria.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import io.github.pedrossjr.livraria.entities.Author;
+import io.github.pedrossjr.livraria.entities.Gender;
+import io.github.pedrossjr.livraria.entities.Publisher;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -22,6 +28,7 @@ public class BookDTO {
     private String bookDescription;
     private int agePublish;
     private int numberPages;
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime registrationDate = LocalDateTime.now();
 
 }

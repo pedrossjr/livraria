@@ -21,7 +21,7 @@ public class PublisherController {
 
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO createPtblisher (@RequestBody @Valid PublisherDTO publisherDTO ) {
+    public MessageResponseDTO createPublisher (@RequestBody @Valid PublisherDTO publisherDTO ) {
         return publisherService.createPublisher(publisherDTO);
     }
 

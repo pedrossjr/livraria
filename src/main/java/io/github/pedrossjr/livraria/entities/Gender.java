@@ -14,7 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tbl_generos")
+@Table(name = "tbl_genders")
 public class Gender {
 
     @Id

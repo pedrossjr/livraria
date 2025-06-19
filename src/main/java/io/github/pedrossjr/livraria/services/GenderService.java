@@ -12,6 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @AllArgsConstructor(onConstructor_ = @__(@Autowired))
 public class GenderService {
@@ -24,6 +27,15 @@ public class GenderService {
         Gender genderToSave = genderMapper.toModel(genderDTO);
         Gender savedGender = genderRepository.save(genderToSave);
         return  createMessageResponse(savedGender.getId(), "Savad gander with id: ");
+    }
+
+    @Transactional(readOnly = true)
+    public List<GenderDTO> listAll() {
+        List<Gender> allPublisher = genderRepository.findAll();
+        return allPublisher
+                .stream()
+                .map(genderMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     @Transactional(readOnly = true)

@@ -31,8 +31,8 @@ public class PublisherService {
 
     @Transactional(readOnly = true)
     public List<PublisherDTO> listAll() {
-        List<Publisher> allPublisher = publisherRepository.findAll();
-        return allPublisher
+        List<Publisher> allPublishers = publisherRepository.findAll();
+        return allPublishers
                 .stream()
                 .map(publisherMapper::toDTO)
                 .collect(Collectors.toList());

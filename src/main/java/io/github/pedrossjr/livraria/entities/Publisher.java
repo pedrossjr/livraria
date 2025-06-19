@@ -14,7 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "tbl_editoras")
+@Table(name = "tbl_publishers")
 public class Publisher {
 
     @Id

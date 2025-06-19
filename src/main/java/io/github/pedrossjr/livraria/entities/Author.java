@@ -3,12 +3,10 @@ package io.github.pedrossjr.livraria.entities;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -23,17 +21,16 @@ public class Author {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(length = 65)
+    @Column(length = 75)
     @NotEmpty(message = "{campo.nome-author.obrigatorio}")
     private String authorName;
 
-    @Column(length = 65)
+    @Column(length = 75)
     @NotEmpty(message = "{campo.email-author.obrigatorio}")
     private String authorMail;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
-    private Set<Book> books;
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Book> books;
 
     private LocalDate birthDate;
 
