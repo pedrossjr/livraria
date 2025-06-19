@@ -28,6 +28,9 @@ public class BookDTO {
     private String bookDescription;
     private int agePublish;
     private int numberPages;
+    private Author author;
+    private Publisher publisher;
+    private Gender gender;
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime registrationDate = LocalDateTime.now();
 

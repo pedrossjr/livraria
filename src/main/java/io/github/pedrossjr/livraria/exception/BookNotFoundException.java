@@ -8,4 +8,8 @@ public class BookNotFoundException extends Exception {
     public BookNotFoundException(Long id) {
         super("Book not found with id: " + id);
     }
+
+    public BookNotFoundException(String isbn) {
+        super("ISBN Book already exits with number: " + isbn);
+    }
 }

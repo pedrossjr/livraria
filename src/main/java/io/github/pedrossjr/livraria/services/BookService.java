@@ -25,8 +25,10 @@ public class BookService {
     private final BookMapper bookMapper;
 
     @Transactional
-    public MessageResponseDTO createBook(BookDTO bookDTO) {
+    public MessageResponseDTO createBook(BookDTO bookDTO) throws BookNotFoundException {
+
         Book bookToSave = bookMapper.toModel(bookDTO);
+        verifyByIsbnExists(bookDTO.getIsbn());
         Book savadBook = bookRepository.save(bookToSave);
         return createMessageResponse(savadBook.getId(), "Savad book with id: ");
     }
@@ -63,6 +65,11 @@ public class BookService {
     private Book verifyByExists(Long id) throws BookNotFoundException {
         return bookRepository.findById(id)
                 .orElseThrow(() -> new BookNotFoundException(id));
+    }
+
+    private Book verifyByIsbnExists(String isbn) throws BookNotFoundException {
+        return bookRepository.findByIsbn(isbn)
+                .orElseThrow(() -> new BookNotFoundException(isbn));
     }
 
     private static MessageResponseDTO createMessageResponse(Long id, String message) {

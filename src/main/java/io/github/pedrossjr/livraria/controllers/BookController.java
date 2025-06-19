@@ -21,7 +21,7 @@ public class BookController {
 
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO createBook (@RequestBody @Valid BookDTO bookDTO ) {
+    public MessageResponseDTO createBook (@RequestBody @Valid BookDTO bookDTO ) throws BookNotFoundException {
         return bookService.createBook(bookDTO);
     }
 
