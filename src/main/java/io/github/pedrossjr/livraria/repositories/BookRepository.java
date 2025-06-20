@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface BookRepository extends JpaRepository<Book, Long> {
 
-    @Query("SELECT COUNT(b) > 0 FROM Book b WHERE b.isbn = :isbn")
-    boolean existsByIsbn(String isbn);
+    @Query("SELECT COUNT(b) > 0 FROM Book b WHERE b.isbnNumber = :isbn")
+    boolean existsByIsbnNumber(String isbn);
 
 }

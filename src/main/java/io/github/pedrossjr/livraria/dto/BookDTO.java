@@ -22,7 +22,7 @@ public class BookDTO {
 
     private Long id;
     @NotEmpty(message = "{field.book-isbn.mandatory}")
-    private String isbn;
+    private String isbnNumber;
     @NotEmpty(message = "{field.book-title.mandatory}")
     private String bookTitle;
     private String bookDescription;

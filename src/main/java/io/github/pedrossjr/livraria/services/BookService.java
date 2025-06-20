@@ -25,7 +25,7 @@ public class BookService {
 
     @Transactional
     public MessageResponseDTO createBook(BookDTO bookDTO) throws BookBusinessException {
-        if(verifyByIsbnExists(bookDTO.getIsbn())){
+        if(verifyByIsbnExists(bookDTO.getIsbnNumber())){
             throw new BookBusinessException("There is already a book with the ISBN entered.");
         }
 
@@ -70,7 +70,7 @@ public class BookService {
     }
 
     private boolean verifyByIsbnExists(String isbn) {
-        return bookRepository.existsByIsbn(isbn);
+        return bookRepository.existsByIsbnNumber(isbn);
     }
 
     private static MessageResponseDTO createMessageResponse(Long id, String message) {

@@ -19,7 +19,7 @@ public class Book {
     private Long id;
 
     @Column(unique = true)
-    private String isbn;
+    private String isbnNumber;
 
     @Column(length = 45)
     private String bookTitle;
