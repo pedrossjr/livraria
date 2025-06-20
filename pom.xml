@@ -67,6 +67,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.1.0</version>
+		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
 		<dependency>
 			<groupId>org.mapstruct</groupId>
@@ -120,5 +125,19 @@
 			</plugin>
 		</plugins>
 	</build>
+	<profiles>
+		<profile>
+			<id>hml</id>
+			<properties>
+				<spring.profiles.active>hml</spring.profiles.active>
+			</properties>
+		</profile>
 
+		<profile>
+			<id>prd</id>
+			<properties>
+				<spring.profiles.active>prd</spring.profiles.active>
+			</properties>
+		</profile>
+	</profiles>
 </project>

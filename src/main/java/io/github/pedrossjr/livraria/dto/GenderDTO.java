@@ -10,7 +10,6 @@ import lombok.*;
 public class GenderDTO {
 
     private Long id;
-
     @NotEmpty(message = "{field.gender.mandatory}")
     private String genderName;
 
