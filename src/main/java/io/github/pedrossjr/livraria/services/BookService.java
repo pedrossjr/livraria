@@ -1,11 +1,10 @@
 package io.github.pedrossjr.livraria.services;
 
 import io.github.pedrossjr.livraria.dto.BookDTO;
-import io.github.pedrossjr.livraria.dto.GenderDTO;
 import io.github.pedrossjr.livraria.dto.response.MessageResponseDTO;
 import io.github.pedrossjr.livraria.entities.Book;
-import io.github.pedrossjr.livraria.entities.Gender;
 import io.github.pedrossjr.livraria.exception.BookNotFoundException;
+import io.github.pedrossjr.livraria.exception.BookBusinessException;
 import io.github.pedrossjr.livraria.mapper.BookMapper;
 import io.github.pedrossjr.livraria.repositories.BookRepository;
 import jakarta.validation.Valid;
@@ -25,12 +24,15 @@ public class BookService {
     private final BookMapper bookMapper;
 
     @Transactional
-    public MessageResponseDTO createBook(BookDTO bookDTO) throws BookNotFoundException {
+    public MessageResponseDTO createBook(BookDTO bookDTO) throws BookBusinessException {
+        if(verifyByIsbnExists(bookDTO.getIsbn())){
+            throw new BookBusinessException("There is already a book with the ISBN entered.");
+        }
 
         Book bookToSave = bookMapper.toModel(bookDTO);
-        verifyByIsbnExists(bookDTO.getIsbn());
         Book savadBook = bookRepository.save(bookToSave);
-        return createMessageResponse(savadBook.getId(), "Savad book with id: ");
+
+        return createMessageResponse(savadBook.getId(), "Saved book with id: ");
     }
 
     @Transactional(readOnly = true)
@@ -67,9 +69,8 @@ public class BookService {
                 .orElseThrow(() -> new BookNotFoundException(id));
     }
 
-    private Book verifyByIsbnExists(String isbn) throws BookNotFoundException {
-        return bookRepository.findByIsbn(isbn)
-                .orElseThrow(() -> new BookNotFoundException(isbn));
+    private boolean verifyByIsbnExists(String isbn) {
+        return bookRepository.existsByIsbn(isbn);
     }
 
     private static MessageResponseDTO createMessageResponse(Long id, String message) {

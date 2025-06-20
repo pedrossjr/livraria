@@ -2,6 +2,7 @@ package io.github.pedrossjr.livraria.controllers;
 
 import io.github.pedrossjr.livraria.dto.BookDTO;
 import io.github.pedrossjr.livraria.dto.response.MessageResponseDTO;
+import io.github.pedrossjr.livraria.exception.BookBusinessException;
 import io.github.pedrossjr.livraria.exception.BookNotFoundException;
 import io.github.pedrossjr.livraria.services.BookService;
 import jakarta.validation.Valid;
@@ -21,7 +22,7 @@ public class BookController {
 
     @PostMapping("/add")
     @ResponseStatus(HttpStatus.CREATED)
-    public MessageResponseDTO createBook (@RequestBody @Valid BookDTO bookDTO ) throws BookNotFoundException {
+    public MessageResponseDTO createBook (@RequestBody @Valid BookDTO bookDTO ) throws BookBusinessException {
         return bookService.createBook(bookDTO);
     }
 
