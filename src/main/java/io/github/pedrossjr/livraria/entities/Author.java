@@ -29,6 +29,7 @@ public class Author {
     @NotEmpty(message = "{campo.email-author.obrigatorio}")
     private String authorMail;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "author", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     private List<Book> books;
 

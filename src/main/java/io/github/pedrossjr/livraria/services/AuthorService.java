@@ -53,6 +53,14 @@ public class AuthorService {
     public MessageResponseDTO updateById(Long id, @Valid AuthorDTO authorDTO) throws AuthorNotFoundException {
         Author authorExists = verifyByExists(id);
 
+        /*
+        * Porque não usei Builder() na atualização de Authors?
+        * Resposta: porque ele atualizaria todos os campos da entidade Book. Neste caso,
+        * a atualização precisa ser somente nos dados relacionados a entidade Author. Usando Builder()
+        * na atualização dos campos Author, como o Book estaria nulo or não ser utilizado,
+        * o Builder atualizaria os dados do Book eliminando os registros de
+        * livros da entidade Book.
+        * */
         if(!authorExists.getId().equals(0)) {
             authorExists.setId(authorDTO.getId());
             authorExists.setAuthorName(authorDTO.getAuthorName());

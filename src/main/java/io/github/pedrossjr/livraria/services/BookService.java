@@ -55,7 +55,7 @@ public class BookService {
         verifyByExists(id);
         Book bookToUpdate = bookMapper.toModel(bookDTO);
         Book updateBook = bookRepository.save(bookToUpdate);
-        return createMessageResponse(updateBook.getId(), "Updated book with id:" );
+        return createMessageResponse(updateBook.getId(), "Updated book with id: " );
     }
 
     @Transactional
