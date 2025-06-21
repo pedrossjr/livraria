@@ -1,0 +1,1188 @@
+type: collection.insomnia.rest/5.0
+name: Livraria
+meta:
+  id: wrk_adc8bb0edf0a4205b1dfa144590afd20
+  created: 1728183897446
+  modified: 1728183897446
+  description: ""
+collection:
+  - name: Authors
+    meta:
+      id: fld_e3920e2d29e94f63b4d2f3129b0d4e34
+      created: 1728183914747
+      modified: 1750285139020
+      sortKey: -1732232847782
+      description: ""
+    children:
+      - url: http://localhost:8080/author/list
+        name: /author/list
+        meta:
+          id: req_4ab72a60810a4a2e943457f11a0d27d1
+          created: 1728183921577
+          modified: 1750289582693
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921577
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/author/1/list
+        name: /author/1/list
+        meta:
+          id: req_9b84e60ee3844f709f9a8a54d89e49c1
+          created: 1728184007856
+          modified: 1750289134273
+          isPrivate: false
+          description: ""
+          sortKey: -1726361637114
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/author/3/update
+        name: /author/3/update
+        meta:
+          id: req_85b1dd8c60bf40d1b11fa4c1c7a0bd63
+          created: 1728184023906
+          modified: 1750289419496
+          isPrivate: false
+          description: ""
+          sortKey: -1725450494882.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 3,
+            	"authorName": "Rubem Braga - atualizado",
+            	"authorMail": "rubembraga@gmail.com",
+            	"birthDate": "12-01-1913",
+            	"dateDeath": "19-12-1990"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/author/add
+        name: /author/add
+        meta:
+          id: req_63be27581de540078e4369ec7547667e
+          created: 1728184048385
+          modified: 1750289606861
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921677
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"authorName": "Carlos Drummond de Andrade",
+            	"authorMail": "carlosdrumond@yahoo.com",
+            	"birthDate": "31-10-1902",
+            	"dateDeath": "17-08-1987"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/author/2/list
+        name: /author/2/list
+        meta:
+          id: req_18d3e5ade2d24c4da2e1d714ff6022cd
+          created: 1732189365129
+          modified: 1750289140902
+          isPrivate: false
+          description: ""
+          sortKey: -1725906065998.25
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/author/5/list
+        name: /author/5/list
+        meta:
+          id: req_5a1fbab5d8b64a5da5452b62228350b8
+          created: 1732189371780
+          modified: 1750289152006
+          isPrivate: false
+          description: ""
+          sortKey: -1725678280440.375
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/author/5/update
+        name: /author/5/update
+        meta:
+          id: req_5c669bfb3666467fa4265d1092a01153
+          created: 1732215185444
+          modified: 1750289661402
+          isPrivate: false
+          description: ""
+          sortKey: -1725222709324.625
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 5,
+            	"authorName": "Lucia Machado de Almeida - atualizado",
+            	"authorMail": "luciamachado@gmail.com",
+            	"birthDate": "09-05-1910",
+            	"dateDeath": "30-04-2005"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/author/4/delete
+        name: /author/4/delete
+        meta:
+          id: req_428956790c114629b7781fc501445642
+          created: 1732215251402
+          modified: 1750289373845
+          isPrivate: false
+          description: ""
+          sortKey: -1724653245429.9375
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/author/add
+        name: /author/add
+        meta:
+          id: req_a33d828a53bf4bb9b4ad1cf5c1729741
+          created: 1739821805094
+          modified: 1750289589495
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921602
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"authorName": "Lucia Machado de Almeida",
+            	"authorMail": "luciamachado@gmail.com",
+            	"birthDate": "09-05-1910",
+            	"dateDeath": "30-04-2005",
+            	"books":[
+            		{
+            			"isbn": "21458969-8",
+            			"bookTitle": "O Escaravelho do Diabo",
+            			"bookDescription": "Série Vagalume",
+            			"agePublish": 1973,
+            			"numberPages": 187			
+            		},
+            		{
+            			"isbn": "21951969-0",
+            			"bookTitle": "Passeio a Diamantina",
+            			"bookDescription": "Série Vagalume",
+            			"agePublish": 1957,
+            			"numberPages": 150			
+            		}
+            	]
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/author/add
+        name: /author/add
+        meta:
+          id: req_715c50d5efac404c94e2db9a8847aaa1
+          created: 1750285537739
+          modified: 1750289598913
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921652
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"authorName": "Rubem Braga",
+            	"authorMail": "rubembraga@gmail.com",
+            	"birthDate": "12-01-1913",
+            	"dateDeath": "19-12-1990"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/author/add
+        name: /author/add
+        meta:
+          id: req_34478c8fb883435892294a491a8fded0
+          created: 1750285547148
+          modified: 1750289603772
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921664.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"authorName": "Fernando Sabino",
+            	"authorMail": "fernandosabino@yahoo.com",
+            	"birthDate": "12-10-1923",
+            	"dateDeath": "11-10-2004"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/author/add
+        name: /author/add
+        meta:
+          id: req_8c5a86db679d4d90aa45c96e88fd6244
+          created: 1750285562855
+          modified: 1750289596112
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921639.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"authorName": "Paulo Mendes Campos",
+            	"authorMail": "paulomendes@gmail.com",
+            	"birthDate": "28-02-1922",
+            	"dateDeath": "01-07-1991"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Books
+    meta:
+      id: fld_d8549a31951c4b73af41c0ff5fbbc7ba
+      created: 1732232847682
+      modified: 1750297513144
+      sortKey: -1732232847682
+      description: ""
+    children:
+      - url: http://localhost:8080/book/list
+        name: /book/list
+        meta:
+          id: req_b1e4c7d13f024ff6bf9b7dc67dd0f38e
+          created: 1732233051333
+          modified: 1750299353914
+          isPrivate: false
+          description: ""
+          sortKey: -1732233051333
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.1.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/1/list
+        name: /book/1/list
+        meta:
+          id: req_c4bf0c62f78b40ed8f3a4d9725ace5c9
+          created: 1732242070787
+          modified: 1750385533398
+          isPrivate: false
+          description: ""
+          sortKey: -1732102325375.5
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.1.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/2/list
+        name: /book/2/list
+        meta:
+          id: req_ea73b587823144ca9adea264da846d60
+          created: 1732242083439
+          modified: 1750385526490
+          isPrivate: false
+          description: ""
+          sortKey: -1732069643886.125
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.1.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/1/update
+        name: /book/1/update
+        meta:
+          id: req_44f70d6115504ba98e7087f2cc39bb2d
+          created: 1732242193179
+          modified: 1750385704245
+          isPrivate: false
+          description: ""
+          sortKey: -1732004280907.375
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"isbn": "132564789-8",
+            	"bookTitle": "Java Efetivo - alterado",
+            	"bookDescription": "Terceira edição",
+            	"agePublish": 2019,
+            	"numberPages": 410,
+              "authorId": 2,
+              "publisherId": 1,
+              "genderId": 2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.1.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/add
+        name: /book/add
+        meta:
+          id: req_25c6deec87ac460b99c6a1521e3a71e4
+          created: 1732242216664
+          modified: 1750301756342
+          isPrivate: false
+          description: ""
+          sortKey: -1732233051533
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"isbn": "132564789-8",
+            	"bookTitle": "Java Efetivo",
+            	"bookDescription": "Terceira edição",
+            	"agePublish": 2019,
+            	"numberPages": 410,
+              "authorId": 1,
+              "publisherId": 2,
+              "genderId": 1
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.1.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/add
+        name: /book/add
+        meta:
+          id: req_c7020d28d9014ad3a83fe0f195de7884
+          created: 1732242222810
+          modified: 1750301744845
+          isPrivate: false
+          description: ""
+          sortKey: -1732233051433
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"isbn": "132564719-8",
+            	"bookTitle": "Java Efetivo",
+            	"bookDescription": "Terceira edição",
+            	"agePublish": 2019,
+            	"numberPages": 410,
+              "authorId": 2,
+              "publisherId": 1,
+              "genderId": 2
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/10.1.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/2/delete
+        name: /book/2/delete
+        meta:
+          id: req_a3c5564a5ba34c429b6e3105a983e1a6
+          created: 1732242233032
+          modified: 1750385654594
+          isPrivate: false
+          description: ""
+          sortKey: -1731973642011.086
+        method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/10.1.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Publishers
+    meta:
+      id: fld_6bcc899d630b4bdc83ae9433e99a751a
+      created: 1749089017159
+      modified: 1750285131912
+      sortKey: -1732232847882
+      description: ""
+    children:
+      - url: http://localhost:8080/publisher/list
+        name: /publisher/list
+        meta:
+          id: req_29cc34db5d954e70aca4313f88956dcf
+          created: 1749089017161
+          modified: 1750285259472
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921577
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/publisher/1/list
+        name: /publisher/1/list
+        meta:
+          id: req_9bfe08bf3d59401b87aea2fd0c32ad93
+          created: 1749089017163
+          modified: 1750285268404
+          isPrivate: false
+          description: ""
+          sortKey: -1726361637114
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/publisher/1/update
+        name: /publisher/1/update
+        meta:
+          id: req_6ca0d6b9329a4186bd1aed64d23315ab
+          created: 1749089017165
+          modified: 1750296684064
+          isPrivate: false
+          description: ""
+          sortKey: -1725450494882.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"publisherName": "Alta Books - alteração",
+            	"publisherMail": "email@alterado.com.br"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/publisher/add
+        name: /publisher/add
+        meta:
+          id: req_7fd9023ef4334edf980727f245e6fd8e
+          created: 1749089017167
+          modified: 1750285241952
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921677
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"publisherName": "Alta Books",
+            	"publisherMail": "contato@altabooks.com.br"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/publisher/3/delete
+        name: /publisher/3/delete
+        meta:
+          id: req_ded76938921f450c8fdbc85c475e6489
+          created: 1749089017169
+          modified: 1750296828831
+          isPrivate: false
+          description: ""
+          sortKey: -1724767138208.875
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/publisher/2/list
+        name: /publisher/2/list
+        meta:
+          id: req_5fb45fb2724a4b8b9465a0cd54745107
+          created: 1749089017171
+          modified: 1750285274433
+          isPrivate: false
+          description: ""
+          sortKey: -1725906065998.25
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/publisher/3/list
+        name: /publisher/3/list
+        meta:
+          id: req_b4e77d27c01c44539dae30e3498eafff
+          created: 1749089017173
+          modified: 1750285279691
+          isPrivate: false
+          description: ""
+          sortKey: -1725678280440.375
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/publisher/2/update
+        name: /publisher/2/update
+        meta:
+          id: req_3ea8fd46fc3846e0b34a06b5307d4f99
+          created: 1749089017177
+          modified: 1750296896358
+          isPrivate: false
+          description: ""
+          sortKey: -1725222709324.625
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 2,
+            	"publisherName": "Novatec - alterado",
+            	"publisherMail": "email@alterado.com.br"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/publisher/add
+        name: /publisher/add
+        meta:
+          id: req_5694016589714a3f94d98d0c19b0e59c
+          created: 1749089017180
+          modified: 1750285245071
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921627
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"publisherName": "Novatec",
+            	"publisherMail": "contato@novatec.com.br"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/publisher/add
+        name: /publisher/add
+        meta:
+          id: req_845e1f67bdd645a2a43f093bdce7427c
+          created: 1749089017182
+          modified: 1750285247802
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921602
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"publisherName": "O’Reilly",
+            	"publisherMail": "support@oreilly.com"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/publisher/4/list
+        name: /publisher/4/list
+        meta:
+          id: req_9d4c83d23e0949caa9977074f69cc71a
+          created: 1750205577643
+          modified: 1750285284702
+          isPrivate: false
+          description: ""
+          sortKey: -1725564387661.4375
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+  - name: Genders
+    meta:
+      id: fld_9e5cbd42e7674a058c29d85502076c56
+      created: 1750296954492
+      modified: 1750296978243
+      sortKey: -1732232847832
+      description: ""
+    children:
+      - url: http://localhost:8080/gender/list
+        name: /gender/list
+        meta:
+          id: req_653e2e72e59a4485953883a785d31a6b
+          created: 1750296954494
+          modified: 1750297248875
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921577
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/gender/1/list
+        name: /gender/1/list
+        meta:
+          id: req_0041f4e9b40e49c9b47cbd02f1fc4726
+          created: 1750296954497
+          modified: 1750297254315
+          isPrivate: false
+          description: ""
+          sortKey: -1726361637114
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/gender/1/update
+        name: /gender/1/update
+        meta:
+          id: req_0cbcbcea78974564b1030bc763ea7e97
+          created: 1750296954499
+          modified: 1750297306019
+          isPrivate: false
+          description: ""
+          sortKey: -1725450494882.5
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 1,
+            	"genderName": "Literatura - atualizado"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/gender/add
+        name: /gender/add
+        meta:
+          id: req_2bcbc203f3a748a7a562a81208ee3b7b
+          created: 1750296954501
+          modified: 1750297229841
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921677
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"genderName": "Literatura"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/gender/2/list
+        name: /gender/2/list
+        meta:
+          id: req_8fcced4751cf4fbe92ff23f8789bb806
+          created: 1750296954503
+          modified: 1750297262587
+          isPrivate: false
+          description: ""
+          sortKey: -1725906065998.25
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/gender/5/list
+        name: /gender/4/list
+        meta:
+          id: req_16fcbf7c96f74a9592757fcc94cfd01e
+          created: 1750296954504
+          modified: 1750297269237
+          isPrivate: false
+          description: ""
+          sortKey: -1725678280440.375
+        method: GET
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/gender/2/update
+        name: /gender/2/update
+        meta:
+          id: req_0e844f2404f14d439df29bcec15a3289
+          created: 1750296954506
+          modified: 1750297388046
+          isPrivate: false
+          description: ""
+          sortKey: -1725222709324.625
+        method: PUT
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"id": 2,
+            	"genderName": "Informática - atualizado"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/gender/1/delete
+        name: /gender/1/delete
+        meta:
+          id: req_81554cb3de754eee9ed1e698bf408269
+          created: 1750296954508
+          modified: 1750297412648
+          isPrivate: false
+          description: ""
+          sortKey: -1724653245429.9375
+        method: DELETE
+        body:
+          mimeType: application/json
+          text: ""
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/gender/add
+        name: /gender/add
+        meta:
+          id: req_bd21cabafdf4436fb61b0e0790425e84
+          created: 1750296954511
+          modified: 1750297244131
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921652
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"genderName": "Banco de Dados"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/gender/add
+        name: /gender/add
+        meta:
+          id: req_c83fe92cdaae4ec89d505544bf158568
+          created: 1750296954513
+          modified: 1750297238422
+          isPrivate: false
+          description: ""
+          sortKey: -1728183921664.5
+        method: POST
+        body:
+          mimeType: application/json
+          text: |-
+            {
+            	"genderName": "Informática"
+            }
+        headers:
+          - name: Content-Type
+            value: application/json
+          - name: User-Agent
+            value: insomnia/9.3.3
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_7e62d1796702f682e15fb70fac83e354076caa29
+    created: 1728183897458
+    modified: 1728183897458
+environments:
+  name: Base Environment
+  meta:
+    id: env_7e62d1796702f682e15fb70fac83e354076caa29
+    created: 1728183897454
+    modified: 1728183897454
+    isPrivate: false
