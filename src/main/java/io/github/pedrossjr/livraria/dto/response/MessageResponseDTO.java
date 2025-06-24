@@ -9,4 +9,11 @@ public class MessageResponseDTO {
 
     private String message;
 
+    public static MessageResponseDTO createMessageResponse(Long id, String message) {
+        return MessageResponseDTO
+                .builder()
+                .message(message + id)
+                .build();
+    }
+
 }

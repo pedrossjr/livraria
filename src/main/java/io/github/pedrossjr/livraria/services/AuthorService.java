@@ -31,7 +31,7 @@ public class AuthorService {
     public MessageResponseDTO createAuthor(AuthorDTO authorDTO) {
         Author authorToSave = authorMapper.toModel(authorDTO);
         Author savedAuthor = authorRepository.save(authorToSave);
-        return createMessageResponse(savedAuthor.getId(), "Saved author with id: ");
+        return MessageResponseDTO.createMessageResponse(savedAuthor.getId(), "Saved author with id: ");
     }
 
     @Transactional(readOnly = true)
@@ -53,14 +53,14 @@ public class AuthorService {
     public MessageResponseDTO updateById(Long id, @Valid AuthorDTO authorDTO) throws AuthorNotFoundException {
         Author authorExists = verifyByExists(id);
 
-        /*
+       /*
         * Porque não usei Builder() na atualização de Authors?
         * Resposta: porque ele atualizaria todos os campos da entidade Book. Neste caso,
         * a atualização precisa ser somente nos dados relacionados a entidade Author. Usando Builder()
         * na atualização dos campos Author, como o Book estaria nulo or não ser utilizado,
         * o Builder atualizaria os dados do Book eliminando os registros de
         * livros da entidade Book.
-        * */
+        */
         if(!authorExists.getId().equals(0)) {
             authorExists.setId(authorDTO.getId());
             authorExists.setAuthorName(authorDTO.getAuthorName());
@@ -70,10 +70,10 @@ public class AuthorService {
 
             Author updatedAuthor = authorRepository.save(authorExists);
 
-            return createMessageResponse(updatedAuthor.getId(), "Updated author with id: ");
+            return MessageResponseDTO.createMessageResponse(updatedAuthor.getId(), "Updated author with id: ");
         }
 
-        return createMessageResponse(0L, "Author not found to updated.");
+        return MessageResponseDTO.createMessageResponse(0L, "Author not found to updated.");
     }
 
     @Transactional
@@ -85,13 +85,6 @@ public class AuthorService {
     private Author verifyByExists(Long id) throws AuthorNotFoundException {
         return authorRepository.findById(id)
                 .orElseThrow(() -> new AuthorNotFoundException(id));
-    }
-
-    private static MessageResponseDTO createMessageResponse(Long id, String message) {
-        return MessageResponseDTO
-                .builder()
-                .message(message + id)
-                .build();
     }
 
 }

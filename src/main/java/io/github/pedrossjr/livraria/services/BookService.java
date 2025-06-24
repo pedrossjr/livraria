@@ -32,7 +32,7 @@ public class BookService {
         Book bookToSave = bookMapper.toModel(bookDTO);
         Book savadBook = bookRepository.save(bookToSave);
 
-        return createMessageResponse(savadBook.getId(), "Saved book with id: ");
+        return MessageResponseDTO.createMessageResponse(savadBook.getId(), "Saved book with id: ");
     }
 
     @Transactional(readOnly = true)
@@ -55,7 +55,7 @@ public class BookService {
         verifyByExists(id);
         Book bookToUpdate = bookMapper.toModel(bookDTO);
         Book updateBook = bookRepository.save(bookToUpdate);
-        return createMessageResponse(updateBook.getId(), "Updated book with id: " );
+        return MessageResponseDTO.createMessageResponse(updateBook.getId(), "Updated book with id: " );
     }
 
     @Transactional
@@ -71,13 +71,6 @@ public class BookService {
 
     private boolean verifyByIsbnExists(String isbn) {
         return bookRepository.existsByIsbnNumber(isbn);
-    }
-
-    private static MessageResponseDTO createMessageResponse(Long id, String message) {
-        return MessageResponseDTO
-                .builder()
-                .message(message + id)
-                .build();
     }
 
 }

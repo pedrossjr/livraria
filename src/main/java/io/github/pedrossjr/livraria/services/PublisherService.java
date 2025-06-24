@@ -26,7 +26,7 @@ public class PublisherService {
     public MessageResponseDTO createPublisher(PublisherDTO publisherDTO) {
         Publisher publisherToSave = publisherMapper.toModel(publisherDTO);
         Publisher savedPublisher = publisherRepository.save(publisherToSave);
-        return createMessageResponse(savedPublisher.getId(), "Saved publisher with id: ");
+        return MessageResponseDTO.createMessageResponse(savedPublisher.getId(), "Saved publisher with id: ");
     }
 
     @Transactional(readOnly = true)
@@ -49,7 +49,7 @@ public class PublisherService {
         verifyByExists(id);
         Publisher publisherToUpdate = publisherMapper.toModel(publisherDTO);
         Publisher updatedPublisher = publisherRepository.save(publisherToUpdate);
-        return createMessageResponse(updatedPublisher.getId(), "Updated publisher with id: ");
+        return MessageResponseDTO.createMessageResponse(updatedPublisher.getId(), "Updated publisher with id: ");
     }
 
     @Transactional
@@ -61,13 +61,6 @@ public class PublisherService {
     private Publisher verifyByExists(Long id) throws PublisherNotFoundException {
         return publisherRepository.findById(id)
                 .orElseThrow(() -> new PublisherNotFoundException(id));
-    }
-
-    private static MessageResponseDTO createMessageResponse(Long id, String message) {
-        return MessageResponseDTO
-                .builder()
-                .message(message + id)
-                .build();
     }
 
 }

@@ -26,7 +26,7 @@ public class GenderService {
     public MessageResponseDTO createGender(GenderDTO genderDTO) {
         Gender genderToSave = genderMapper.toModel(genderDTO);
         Gender savedGender = genderRepository.save(genderToSave);
-        return  createMessageResponse(savedGender.getId(), "Savad gander with id: ");
+        return  MessageResponseDTO.createMessageResponse(savedGender.getId(), "Savad gander with id: ");
     }
 
     @Transactional(readOnly = true)
@@ -49,7 +49,7 @@ public class GenderService {
         verifyByExists(id);
         Gender genderToUpdate = genderMapper.toModel(genderDTO);
         Gender updatedGender = genderRepository.save(genderToUpdate);
-        return createMessageResponse(updatedGender.getId(), "Updated gender with id: ");
+        return MessageResponseDTO.createMessageResponse(updatedGender.getId(), "Updated gender with id: ");
     }
 
     @Transactional
@@ -61,13 +61,6 @@ public class GenderService {
     private Gender verifyByExists(Long id) throws GenderNotFoundException {
         return genderRepository.findById(id)
                 .orElseThrow(() -> new GenderNotFoundException(id));
-    }
-
-    private static MessageResponseDTO createMessageResponse(Long id, String message) {
-        return MessageResponseDTO
-                .builder()
-                .message(message + id)
-                .build();
     }
 
 }
