@@ -21,7 +21,7 @@ public class Book {
     @Column(unique = true)
     private String isbnNumber;
 
-    @Column(length = 45)
+    @Column(length = 65)
     private String bookTitle;
 
     @Column(columnDefinition = "TEXT")
@@ -33,7 +33,7 @@ public class Book {
 
     @JsonIgnore
     @ManyToOne
-    @JoinColumn(name = "autor_id")
+    @JoinColumn(name = "author_id")
     private Author author;
 
     @ManyToOne
