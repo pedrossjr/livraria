@@ -1,6 +1,7 @@
 package io.github.pedrossjr.livraria.controllers;
 
 import io.github.pedrossjr.livraria.dto.BookDTO;
+import io.github.pedrossjr.livraria.dto.BookListDTO;
 import io.github.pedrossjr.livraria.dto.response.MessageResponseDTO;
 import io.github.pedrossjr.livraria.exception.BookBusinessException;
 import io.github.pedrossjr.livraria.exception.BookNotFoundException;
@@ -33,7 +34,19 @@ public class BookController {
 
     @GetMapping("/{id}/list")
     public BookDTO findById(@PathVariable Long id) throws BookNotFoundException {
-        return  bookService.findById(id);
+        return bookService.findById(id);
+    }
+
+    @GetMapping("/{id}/genderlist")
+    public List<BookListDTO> findByIdGender(@PathVariable Long id) throws BookNotFoundException {
+        List<BookListDTO> allBooksForGender = bookService.listByIdGender(id);
+        return allBooksForGender;
+    }
+
+    @GetMapping("/gender/{genderId}/author/{authorId}/list")
+    public List<BookDTO> findByGenderIdAndAuthorId(@PathVariable Long genderId, @PathVariable Long authorId) throws BookNotFoundException {
+        List<BookDTO> allBooksForGenderAndAuthor = bookService.findByGenderAndAuthor(genderId, authorId);
+        return allBooksForGenderAndAuthor;
     }
 
     @PutMapping("/{id}/update")

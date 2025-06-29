@@ -1,11 +1,13 @@
 package io.github.pedrossjr.livraria.services;
 
 import io.github.pedrossjr.livraria.dto.BookDTO;
+import io.github.pedrossjr.livraria.dto.BookListDTO;
 import io.github.pedrossjr.livraria.dto.response.MessageResponseDTO;
 import io.github.pedrossjr.livraria.entities.Book;
 import io.github.pedrossjr.livraria.exception.BookNotFoundException;
 import io.github.pedrossjr.livraria.exception.BookBusinessException;
 import io.github.pedrossjr.livraria.mapper.BookMapper;
+import io.github.pedrossjr.livraria.projections.BookGenderProjection;
 import io.github.pedrossjr.livraria.repositories.BookRepository;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
@@ -48,6 +50,24 @@ public class BookService {
     public BookDTO findById(Long id) throws BookNotFoundException {
         Book book = verifyByExists(id);
         return bookMapper.toDTO(book);
+    }
+
+    @Transactional(readOnly = true)
+    public List<BookListDTO> listByIdGender(Long id) {
+        List<BookGenderProjection> allBooksForGender = bookRepository.reportBookWithGender(id);
+        return allBooksForGender
+                .stream()
+                .map(x -> new BookListDTO(x))
+                .toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<BookDTO> findByGenderAndAuthor(Long genderId, Long authorId) throws BookNotFoundException {
+        List<Book> allBooksForGenderAndAuthor = bookRepository.findByGenderIdAndAuthorId(genderId, authorId);
+        return allBooksForGenderAndAuthor
+                .stream()
+                .map(bookMapper::toDTO)
+                .collect(Collectors.toList());
     }
 
     @Transactional

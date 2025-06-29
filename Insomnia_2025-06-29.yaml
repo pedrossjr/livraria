@@ -242,7 +242,7 @@ collection:
         meta:
           id: req_a33d828a53bf4bb9b4ad1cf5c1729741
           created: 1739821805094
-          modified: 1750289589495
+          modified: 1750771127292
           isPrivate: false
           description: ""
           sortKey: -1728183921602
@@ -257,14 +257,14 @@ collection:
             	"dateDeath": "30-04-2005",
             	"books":[
             		{
-            			"isbn": "21458969-8",
+            			"isbnNumber": "21458969-8",
             			"bookTitle": "O Escaravelho do Diabo",
             			"bookDescription": "Série Vagalume",
             			"agePublish": 1973,
             			"numberPages": 187			
             		},
             		{
-            			"isbn": "21951969-0",
+            			"isbnNumber": "21951969-0",
             			"bookTitle": "Passeio a Diamantina",
             			"bookDescription": "Série Vagalume",
             			"agePublish": 1957,
@@ -494,7 +494,7 @@ collection:
         meta:
           id: req_25c6deec87ac460b99c6a1521e3a71e4
           created: 1732242216664
-          modified: 1750301756342
+          modified: 1750771110078
           isPrivate: false
           description: ""
           sortKey: -1732233051533
@@ -503,7 +503,7 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"isbn": "132564789-8",
+            	"isbnNumber": "132564789-8",
             	"bookTitle": "Java Efetivo",
             	"bookDescription": "Terceira edição",
             	"agePublish": 2019,
@@ -530,7 +530,7 @@ collection:
         meta:
           id: req_c7020d28d9014ad3a83fe0f195de7884
           created: 1732242222810
-          modified: 1750301744845
+          modified: 1750771327060
           isPrivate: false
           description: ""
           sortKey: -1732233051433
@@ -539,7 +539,7 @@ collection:
           mimeType: application/json
           text: |-
             {
-            	"isbn": "132564719-8",
+            	"isbnNumber": "132544719-8",
             	"bookTitle": "Java Efetivo",
             	"bookDescription": "Terceira edição",
             	"agePublish": 2019,
@@ -571,6 +571,48 @@ collection:
           description: ""
           sortKey: -1731973642011.086
         method: DELETE
+        headers:
+          - name: User-Agent
+            value: insomnia/10.1.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/1/genderlist
+        name: /book/2/BookFoGenderlist
+        meta:
+          id: req_896e71d414694bec8b67d9fadeb22a8f
+          created: 1751216902654
+          modified: 1751221807034
+          isPrivate: false
+          description: ""
+          sortKey: -1732036962396.75
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/10.1.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+      - url: http://localhost:8080/book/gender/1/author/9/list
+        name: /book/2/BookFoGenderAndAuthorList
+        meta:
+          id: req_aaedb43a52534d98ae8033e5c3799218
+          created: 1751222919736
+          modified: 1751223469233
+          isPrivate: false
+          description: ""
+          sortKey: -1732020621652.0625
+        method: GET
         headers:
           - name: User-Agent
             value: insomnia/10.1.1

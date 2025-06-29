@@ -46,4 +46,6 @@ public class Book {
 
     private LocalDateTime registrationDate = LocalDateTime.now();
 
+    public Book(Book book) {
+    }
 }

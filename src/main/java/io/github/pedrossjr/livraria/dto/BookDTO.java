@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import io.github.pedrossjr.livraria.entities.Author;
 import io.github.pedrossjr.livraria.entities.Gender;
 import io.github.pedrossjr.livraria.entities.Publisher;
+import io.github.pedrossjr.livraria.projections.BookGenderProjection;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.NotEmpty;
@@ -34,4 +35,6 @@ public class BookDTO {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private LocalDateTime registrationDate = LocalDateTime.now();
 
+    public BookDTO(BookDTO x) {
+    }
 }
